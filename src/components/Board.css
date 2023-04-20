@@ -1,0 +1,81 @@
+.cell {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #000;
+  display: inline-block;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hidden,
+.flagged {
+  background-color: gray;
+}
+
+.hidden::after {
+  content: "⠀";
+}
+
+.flagged::after {
+  content: "🚩";
+}
+
+.mine:after {
+  content: "💣";
+}
+
+.c0:after {
+  content: "⠀";
+}
+
+.c1:after {
+  content: "1";
+}
+
+.c2:after {
+  content: "2";
+}
+
+.c3:after {
+  content: "3";
+}
+
+.c4:after {
+  content: "4";
+}
+
+.c5:after {
+  content: "5";
+}
+
+.c6:after {
+  content: "6";
+}
+
+.c7:after {
+  content: "7";
+}
+
+.c8:after {
+  content: "8";
+}
+
+
+
+.c0,
+.c1,
+.c2,
+.c3,
+.c4,
+.c5,
+.c6,
+.c7,
+.c8 {
+  background-color: lightblue;
+}
+
+.mine {
+  background-color: red;
+}
