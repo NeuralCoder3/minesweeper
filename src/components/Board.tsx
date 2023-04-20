@@ -8,6 +8,17 @@ interface IBoardProp {
   mine_percentage: number;
 }
 
+// const neighbous = [[-1, 0], [1, 0], [0, -1], [0, 1]];
+let neighbours: [number, number][] = [];
+for (let di = -1; di <= 1; di++) {
+  for (let dj = -1; dj <= 1; dj++) {
+    if (di === 0 && dj === 0) {
+      continue;
+    }
+    neighbours.push([di, dj]);
+  }
+}
+
 function initBoard(width: number, height: number, mine_percentage: number) {
   const board = [];
   for (let i = 0; i < height; i++) {
@@ -74,7 +85,6 @@ export function Board(props: IBoardProp) {
     const newBoard = [...board];
 
     // reveal all empty cells around this cell
-    const neighbous = [[-1, 0], [1, 0], [0, -1], [0, 1]];
     if (newBoard[i][j].type === 0) {
       let queue = [[i, j]];
       while (queue.length > 0) {
@@ -88,7 +98,7 @@ export function Board(props: IBoardProp) {
         if (typeof newBoard[ni][nj].type === "number") {
           newBoard[ni][nj].isRevealed = true;
           if (newBoard[ni][nj].type === 0) {
-            neighbous.forEach(([di, dj]) => {
+            neighbours.forEach(([di, dj]) => {
               queue.push([ni + di, nj + dj]);
             });
           }
